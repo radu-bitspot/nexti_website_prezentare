@@ -14,21 +14,38 @@ const Hero: React.FC = () => {
       <div className="hero-container">
         <div className="hero-content">
           <h1 className="hero-title">
-            Soluții IT <span className="highlight">Inovatoare</span>
-            <br />
-            pentru Afacerea Ta
+            Tehnologie
+            <span className="highlight">Simplă</span>
+            Rezultate
+            <span className="highlight">Complexe</span>
           </h1>
           <p className="hero-subtitle">
-            Consultanță, dezvoltare și implementare de soluții IT
-            personalizate pentru succesul companiei tale.
+            Transformăm idei în soluții digitale performante.
+            Fără clișee. Fără promisiuni goale. Doar rezultate concrete.
           </p>
           <div className="hero-cta">
             <button onClick={scrollToContact} className="btn-primary">
-              Începe Proiectul
+              Hai să vorbim
             </button>
             <button onClick={() => document.getElementById('services')?.scrollIntoView({ behavior: 'smooth' })} className="btn-secondary">
-              Descoperă Serviciile
+              Ce facem
             </button>
+          </div>
+        </div>
+        <div className="hero-visual">
+          <div className="hero-stats">
+            <div className="stat-line">
+              <span className="stat-number">10+</span>
+              <span className="stat-label">ani</span>
+            </div>
+            <div className="stat-line">
+              <span className="stat-number">50+</span>
+              <span className="stat-label">proiecte</span>
+            </div>
+            <div className="stat-line">
+              <span className="stat-number">100%</span>
+              <span className="stat-label">dedicare</span>
+            </div>
           </div>
         </div>
       </div>

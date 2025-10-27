@@ -4,34 +4,40 @@ import '../styles/Services.css';
 const Services: React.FC = () => {
   const services = [
     {
-      icon: '💻',
-      title: 'Dezvoltare Software',
-      description: 'Aplicații web și mobile personalizate, construite cu tehnologii moderne și scalabile.'
+      number: '01',
+      title: 'Software',
+      subtitle: 'Custom Development',
+      description: 'De la concept la producție. Aplicații web și mobile care rezolvă probleme reale.'
     },
     {
-      icon: '☁️',
-      title: 'Cloud Solutions',
-      description: 'Migrare în cloud, infrastructură și management de servicii cloud pentru eficiență maximă.'
+      number: '02',
+      title: 'Cloud',
+      subtitle: 'Infrastructure & DevOps',
+      description: 'Arhitectură cloud scalabilă. Deployment automatizat. Zero downtime.'
     },
     {
-      icon: '🔒',
-      title: 'Securitate IT',
-      description: 'Protecție avansată a datelor, audit de securitate și implementare de soluții de protecție.'
+      number: '03',
+      title: 'Security',
+      subtitle: 'Cyber Protection',
+      description: 'Protecție proactivă. Audit complet. Peace of mind pentru business-ul tău.'
     },
     {
-      icon: '📊',
-      title: 'Consultanță IT',
-      description: 'Strategie digitală, optimizare procese și recomandări pentru transformare digitală.'
+      number: '04',
+      title: 'Consulting',
+      subtitle: 'Digital Strategy',
+      description: 'Strategie tehnologică clară. ROI măsurabil. Parteneriat pe termen lung.'
     },
     {
-      icon: '🔧',
-      title: 'Suport & Mentenanță',
-      description: 'Monitorizare continuă, actualizări și suport tehnic dedicat pentru sistemele tale.'
+      number: '05',
+      title: 'Support',
+      subtitle: '24/7 Maintenance',
+      description: 'Monitorizare continuă. Răspuns rapid. Sisteme care funcționează mereu.'
     },
     {
-      icon: '🚀',
-      title: 'Automatizare',
-      description: 'Implementare de soluții de automatizare pentru optimizarea proceselor de business.'
+      number: '06',
+      title: 'Automation',
+      subtitle: 'Process Optimization',
+      description: 'Elimină task-urile repetitive. Crește eficiența. Focus pe ce contează.'
     }
   ];
 
@@ -39,18 +45,24 @@ const Services: React.FC = () => {
     <section id="services" className="services">
       <div className="services-container">
         <div className="section-header">
-          <h2 className="section-title">Serviciile Noastre</h2>
+          <h2 className="section-title">Ce facem</h2>
           <p className="section-subtitle">
-            Oferim soluții complete pentru nevoile tale de IT
+            Servicii IT concrete, fără buzzwords
           </p>
         </div>
 
-        <div className="services-grid">
+        <div className="services-list">
           {services.map((service, index) => (
-            <div key={index} className="service-card">
-              <div className="service-icon">{service.icon}</div>
-              <h3 className="service-title">{service.title}</h3>
-              <p className="service-description">{service.description}</p>
+            <div key={index} className="service-item">
+              <div className="service-number">{service.number}</div>
+              <div className="service-content">
+                <div className="service-header">
+                  <h3 className="service-title">{service.title}</h3>
+                  <span className="service-subtitle">{service.subtitle}</span>
+                </div>
+                <p className="service-description">{service.description}</p>
+              </div>
+              <div className="service-arrow">→</div>
             </div>
           ))}
         </div>

@@ -12,41 +12,37 @@ const About: React.FC = () => {
   return (
     <section id="about" className="about">
       <div className="about-container">
-        <div className="about-content">
-          <div className="about-text">
-            <h2 className="section-title">Despre NexTI</h2>
-            <p className="about-description">
-              Suntem o echipă de experți IT dedicați transformării digitale a afacerilor.
-              Cu experiență vastă în consultanță și dezvoltare, oferim soluții personalizate
-              care răspund nevoilor specifice ale fiecărui client.
-            </p>
-            <p className="about-description">
-              Misiunea noastră este să simplificăm tehnologia și să o facem accesibilă,
-              ajutând companiile să își atingă obiectivele prin inovație și excelență tehnică.
-            </p>
-            <div className="about-values">
-              <div className="value-item">
-                <span className="value-icon">✓</span>
-                <span>Inovație continuă</span>
-              </div>
-              <div className="value-item">
-                <span className="value-icon">✓</span>
-                <span>Calitate superioară</span>
-              </div>
-              <div className="value-item">
-                <span className="value-icon">✓</span>
-                <span>Partnership pe termen lung</span>
-              </div>
-            </div>
+        <div className="about-grid">
+          <div className="about-intro">
+            <h2 className="section-title">De ce NexTI?</h2>
           </div>
 
-          <div className="about-stats">
-            {stats.map((stat, index) => (
-              <div key={index} className="stat-card">
-                <div className="stat-number">{stat.number}</div>
-                <div className="stat-label">{stat.label}</div>
-              </div>
-            ))}
+          <div className="about-content">
+            <p className="about-description">
+              Nu suntem doar o companie IT. Suntem partenerii tăi în transformare digitală.
+            </p>
+            <p className="about-description">
+              Fiecare linie de cod pe care o scriem are un scop: să rezolve probleme reale,
+              să simplifice procese complexe, să aducă rezultate măsurabile.
+            </p>
+            <p className="about-description">
+              Tehnologia e doar un instrument. Noi ne concentrăm pe impact.
+            </p>
+          </div>
+
+          <div className="about-principles">
+            <div className="principle-item">
+              <h3 className="principle-number">01</h3>
+              <p className="principle-text">Transparență totală în fiecare proiect</p>
+            </div>
+            <div className="principle-item">
+              <h3 className="principle-number">02</h3>
+              <p className="principle-text">Cod de calitate, nu doar cod functional</p>
+            </div>
+            <div className="principle-item">
+              <h3 className="principle-number">03</h3>
+              <p className="principle-text">Partnership pe termen lung, nu tranzacții</p>
+            </div>
           </div>
         </div>
       </div>

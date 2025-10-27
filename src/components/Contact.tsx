@@ -32,86 +32,83 @@ const Contact: React.FC = () => {
   return (
     <section id="contact" className="contact">
       <div className="contact-container">
-        <div className="section-header">
-          <h2 className="section-title">Contactează-ne</h2>
-          <p className="section-subtitle">
-            Hai să discutăm despre proiectul tău
+        <div className="contact-header">
+          <h2 className="contact-title">Hai să creăm<br />ceva <span className="highlight-text">remarcabil</span></h2>
+          <p className="contact-intro">
+            Fiecare proiect începe cu o conversație. Spune-ne despre ideea ta.
           </p>
         </div>
 
-        <div className="contact-content">
-          <div className="contact-info">
-            <div className="info-item">
-              <div className="info-icon">📧</div>
-              <div className="info-details">
-                <h3>Email</h3>
-                <p>contact@nexti.ro</p>
-              </div>
-            </div>
-            <div className="info-item">
-              <div className="info-icon">📱</div>
-              <div className="info-details">
-                <h3>Telefon</h3>
-                <p>+40 XXX XXX XXX</p>
-              </div>
-            </div>
-            <div className="info-item">
-              <div className="info-icon">📍</div>
-              <div className="info-details">
-                <h3>Locație</h3>
-                <p>România</p>
-              </div>
-            </div>
-          </div>
-
+        <div className="contact-grid">
           <form className="contact-form" onSubmit={handleSubmit}>
-            <div className="form-group">
-              <input
-                type="text"
-                name="name"
-                placeholder="Nume complet"
-                value={formData.name}
-                onChange={handleChange}
-                required
-                className="form-input"
-              />
+            <div className="form-row">
+              <div className="form-group">
+                <label className="form-label">Nume *</label>
+                <input
+                  type="text"
+                  name="name"
+                  value={formData.name}
+                  onChange={handleChange}
+                  required
+                  className="form-input"
+                />
+              </div>
+              <div className="form-group">
+                <label className="form-label">Email *</label>
+                <input
+                  type="email"
+                  name="email"
+                  value={formData.email}
+                  onChange={handleChange}
+                  required
+                  className="form-input"
+                />
+              </div>
             </div>
             <div className="form-group">
-              <input
-                type="email"
-                name="email"
-                placeholder="Email"
-                value={formData.email}
-                onChange={handleChange}
-                required
-                className="form-input"
-              />
-            </div>
-            <div className="form-group">
+              <label className="form-label">Companie</label>
               <input
                 type="text"
                 name="company"
-                placeholder="Companie (opțional)"
                 value={formData.company}
                 onChange={handleChange}
                 className="form-input"
               />
             </div>
             <div className="form-group">
+              <label className="form-label">Mesaj *</label>
               <textarea
                 name="message"
-                placeholder="Mesajul tău"
                 value={formData.message}
                 onChange={handleChange}
                 required
-                rows={5}
+                rows={6}
                 className="form-input form-textarea"
               />
             </div>
             <button type="submit" className="btn-submit">
-              {isSubmitted ? 'Trimis! ✓' : 'Trimite Mesajul'}
+              {isSubmitted ? 'Mesaj trimis' : 'Trimite'}
             </button>
           </form>
+
+          <div className="contact-details">
+            <div className="detail-block">
+              <h3 className="detail-label">Email</h3>
+              <a href="mailto:contact@nexti.ro" className="detail-value">contact@nexti.ro</a>
+            </div>
+            <div className="detail-block">
+              <h3 className="detail-label">Telefon</h3>
+              <a href="tel:+40" className="detail-value">+40 XXX XXX XXX</a>
+            </div>
+            <div className="detail-block">
+              <h3 className="detail-label">Locație</h3>
+              <p className="detail-value">România</p>
+            </div>
+            <div className="detail-block">
+              <h3 className="detail-label">Timp de răspuns</h3>
+              <p className="detail-value">24h</p>
+            </div>
+          </div>
         </div>
       </div>
     </section>

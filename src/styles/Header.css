@@ -4,33 +4,33 @@
   left: 0;
   right: 0;
   z-index: 1000;
-  background: rgba(255, 255, 255, 0.95);
+  background: rgba(255, 255, 255, 0.98);
   backdrop-filter: blur(10px);
   transition: all 0.3s ease;
   border-bottom: 1px solid transparent;
 }
 
 .header.scrolled {
-  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.05);
-  border-bottom: 1px solid rgba(45, 188, 176, 0.1);
+  border-bottom: 1px solid #e0e0e0;
 }
 
 .header-container {
-  max-width: 1200px;
+  max-width: 1400px;
   margin: 0 auto;
-  padding: 1.5rem 2rem;
+  padding: 2rem 4rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
 .logo {
-  font-size: 1.8rem;
-  font-weight: 600;
+  font-size: 1.5rem;
+  font-weight: 800;
   cursor: pointer;
   display: flex;
   align-items: center;
   gap: 0;
+  letter-spacing: -0.02em;
 }
 
 .logo-next {
@@ -43,35 +43,37 @@
 
 .nav {
   display: flex;
-  gap: 2rem;
+  gap: 3rem;
   align-items: center;
 }
 
 .nav-link {
   background: none;
   border: none;
-  color: #4a4a4a;
-  font-size: 1rem;
+  color: #1a1a1a;
+  font-size: 0.9rem;
   font-weight: 500;
   cursor: pointer;
-  transition: color 0.3s ease;
-  padding: 0.5rem 0;
+  transition: all 0.2s ease;
+  padding: 0;
   position: relative;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
 }
 
 .nav-link::after {
   content: '';
   position: absolute;
-  bottom: 0;
+  bottom: -5px;
   left: 0;
   width: 0;
-  height: 2px;
-  background: #2DBCB0;
+  height: 1px;
+  background: #1a1a1a;
   transition: width 0.3s ease;
 }
 
 .nav-link:hover {
-  color: #2DBCB0;
+  color: #1a1a1a;
 }
 
 .nav-link:hover::after {
@@ -79,11 +81,14 @@
 }
 
 .contact-btn {
-  background: #2DBCB0;
+  background: #1a1a1a;
   color: white;
-  padding: 0.75rem 1.5rem;
-  border-radius: 8px;
+  padding: 0.8rem 2rem;
+  border-radius: 0;
   transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-size: 0.85rem;
 }
 
 .contact-btn::after {
@@ -91,9 +96,8 @@
 }
 
 .contact-btn:hover {
-  background: #25a89e;
-  transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(45, 188, 176, 0.3);
+  background: #2DBCB0;
+  transform: translateX(5px);
   color: white;
 }
 
