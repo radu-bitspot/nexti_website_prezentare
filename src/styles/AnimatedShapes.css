@@ -11,93 +11,94 @@
 
 .shape {
   position: absolute;
-  color: rgba(45, 188, 176, 0.15);
+  color: rgba(45, 188, 176, 0.4);
   opacity: 0;
-  animation: float-shape 20s ease-in-out infinite;
+  animation: float-shape 12s ease-in-out infinite;
+  filter: drop-shadow(0 0 8px rgba(45, 188, 176, 0.3));
 }
 
 /* Cube */
 .shape-cube {
-  width: 150px;
-  height: 150px;
+  width: 200px;
+  height: 200px;
   top: 15%;
   right: 8%;
-  animation: float-shape 25s ease-in-out infinite, rotate-3d 30s linear infinite;
+  animation: float-shape 14s ease-in-out infinite, rotate-3d 15s linear infinite;
 }
 
 .cube-group {
   transform-origin: center;
-  animation: perspective-rotate 20s ease-in-out infinite;
+  animation: perspective-rotate 10s ease-in-out infinite;
 }
 
 /* Pyramid */
 .shape-pyramid {
-  width: 120px;
-  height: 120px;
+  width: 170px;
+  height: 170px;
   top: 60%;
   right: 15%;
-  animation: float-shape 22s ease-in-out infinite 2s, rotate-3d-reverse 25s linear infinite;
+  animation: float-shape 12s ease-in-out infinite 2s, rotate-3d-reverse 13s linear infinite;
 }
 
 .pyramid-group {
   transform-origin: center;
-  animation: perspective-tilt 18s ease-in-out infinite;
+  animation: perspective-tilt 9s ease-in-out infinite;
 }
 
 /* Octahedron */
 .shape-octahedron {
-  width: 130px;
-  height: 130px;
+  width: 180px;
+  height: 180px;
   top: 35%;
   right: 25%;
-  animation: float-shape 28s ease-in-out infinite 4s, rotate-3d 35s linear infinite;
+  animation: float-shape 16s ease-in-out infinite 4s, rotate-3d 18s linear infinite;
 }
 
 .octahedron-group {
   transform-origin: center;
-  animation: perspective-spin 22s ease-in-out infinite;
+  animation: perspective-spin 11s ease-in-out infinite;
 }
 
 /* Torus */
 .shape-torus {
-  width: 140px;
-  height: 140px;
+  width: 190px;
+  height: 190px;
   top: 75%;
   right: 35%;
-  animation: float-shape 24s ease-in-out infinite 3s, rotate-3d-reverse 28s linear infinite;
+  animation: float-shape 13s ease-in-out infinite 3s, rotate-3d-reverse 14s linear infinite;
 }
 
 .torus-group {
   transform-origin: center;
-  animation: perspective-wobble 25s ease-in-out infinite;
+  animation: perspective-wobble 12s ease-in-out infinite;
 }
 
 /* Icosahedron */
 .shape-icosahedron {
-  width: 110px;
-  height: 110px;
+  width: 160px;
+  height: 160px;
   top: 50%;
   right: 5%;
-  animation: float-shape 26s ease-in-out infinite 5s, rotate-3d 32s linear infinite;
+  animation: float-shape 15s ease-in-out infinite 5s, rotate-3d 16s linear infinite;
 }
 
 .icosahedron-group {
   transform-origin: center;
-  animation: perspective-rotate 24s ease-in-out infinite reverse;
+  animation: perspective-rotate 12s ease-in-out infinite reverse;
 }
 
 /* Tetrahedron */
 .shape-tetrahedron {
-  width: 100px;
-  height: 100px;
+  width: 150px;
+  height: 150px;
   top: 20%;
   right: 40%;
-  animation: float-shape 23s ease-in-out infinite 1s, rotate-3d-reverse 27s linear infinite;
+  animation: float-shape 13s ease-in-out infinite 1s, rotate-3d-reverse 14s linear infinite;
 }
 
 .tetrahedron-group {
   transform-origin: center;
-  animation: perspective-tilt 20s ease-in-out infinite reverse;
+  animation: perspective-tilt 10s ease-in-out infinite reverse;
 }
 
 /* Keyframe Animations */
@@ -105,20 +106,21 @@
 @keyframes float-shape {
   0% {
     opacity: 0;
-    transform: translateY(0) translateX(0);
+    transform: translateY(0) translateX(0) scale(0.9);
   }
-  10% {
-    opacity: 1;
+  5% {
+    opacity: 0.8;
   }
   50% {
-    transform: translateY(-30px) translateX(20px);
-  }
-  90% {
     opacity: 1;
+    transform: translateY(-50px) translateX(30px) scale(1.1);
+  }
+  95% {
+    opacity: 0.8;
   }
   100% {
     opacity: 0;
-    transform: translateY(0) translateX(0);
+    transform: translateY(0) translateX(0) scale(0.9);
   }
 }
 
@@ -145,13 +147,13 @@
     transform: perspective(500px) rotateX(0deg) rotateY(0deg);
   }
   25% {
-    transform: perspective(500px) rotateX(15deg) rotateY(15deg);
+    transform: perspective(500px) rotateX(25deg) rotateY(25deg);
   }
   50% {
-    transform: perspective(500px) rotateX(0deg) rotateY(30deg);
+    transform: perspective(500px) rotateX(0deg) rotateY(50deg);
   }
   75% {
-    transform: perspective(500px) rotateX(-15deg) rotateY(15deg);
+    transform: perspective(500px) rotateX(-25deg) rotateY(25deg);
   }
 }
 
@@ -160,19 +162,19 @@
     transform: perspective(500px) rotateX(0deg) rotateZ(0deg);
   }
   33% {
-    transform: perspective(500px) rotateX(20deg) rotateZ(10deg);
+    transform: perspective(500px) rotateX(30deg) rotateZ(15deg);
   }
   66% {
-    transform: perspective(500px) rotateX(-20deg) rotateZ(-10deg);
+    transform: perspective(500px) rotateX(-30deg) rotateZ(-15deg);
   }
 }
 
 @keyframes perspective-spin {
   0%, 100% {
-    transform: perspective(600px) rotateY(0deg) rotateX(10deg);
+    transform: perspective(600px) rotateY(0deg) rotateX(15deg);
   }
   50% {
-    transform: perspective(600px) rotateY(180deg) rotateX(-10deg);
+    transform: perspective(600px) rotateY(180deg) rotateX(-15deg);
   }
 }
 
@@ -181,16 +183,16 @@
     transform: perspective(500px) rotateX(0deg) rotateY(0deg) rotateZ(0deg);
   }
   20% {
-    transform: perspective(500px) rotateX(10deg) rotateY(10deg) rotateZ(5deg);
+    transform: perspective(500px) rotateX(15deg) rotateY(15deg) rotateZ(8deg);
   }
   40% {
-    transform: perspective(500px) rotateX(-10deg) rotateY(20deg) rotateZ(-5deg);
+    transform: perspective(500px) rotateX(-15deg) rotateY(30deg) rotateZ(-8deg);
   }
   60% {
-    transform: perspective(500px) rotateX(10deg) rotateY(-10deg) rotateZ(5deg);
+    transform: perspective(500px) rotateX(15deg) rotateY(-15deg) rotateZ(8deg);
   }
   80% {
-    transform: perspective(500px) rotateX(-10deg) rotateY(-20deg) rotateZ(-5deg);
+    transform: perspective(500px) rotateX(-15deg) rotateY(-30deg) rotateZ(-8deg);
   }
 }
 
