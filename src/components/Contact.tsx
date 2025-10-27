@@ -102,7 +102,6 @@ const Contact: React.FC = () => {
             </div>
             <div className="detail-block">
               <h3 className="detail-label">Web</h3>
-              <a href="http://127.0.0.1:3000" target="_blank" rel="noopener noreferrer" className="detail-value">127.0.0.1</a>
               <a href="https://nexti.ro" target="_blank" rel="noopener noreferrer" className="detail-value">nexti.ro</a>
             </div>
             <div className="detail-block">
