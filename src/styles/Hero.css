@@ -4,7 +4,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background: #000000;
+  background: #FFFFFF;
   padding-top: 80px;
   position: relative;
   overflow: hidden;
@@ -21,7 +21,6 @@
   background: linear-gradient(90deg, transparent, #2DBCB0, transparent);
   animation: scan 4s ease-in-out infinite;
   z-index: 10;
-  box-shadow: 0 0 20px #2DBCB0;
 }
 
 @keyframes scan {
@@ -52,7 +51,7 @@
 }
 
 .grid-item {
-  border: 1px solid rgba(45, 188, 176, 0.2);
+  border: 1px solid rgba(45, 188, 176, 0.3);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -77,7 +76,8 @@
 .gi-1 {
   grid-column: 1 / 7;
   grid-row: 2 / 5;
-  border-width: 2px;
+  border-width: 3px;
+  border-color: rgba(45, 188, 176, 0.5);
 }
 
 .gi-2 {
@@ -108,53 +108,67 @@
 .hero-title {
   font-size: 8rem;
   font-weight: 900;
-  color: #2DBCB0;
-  letter-spacing: 0.5rem;
+  letter-spacing: -0.02em;
   position: relative;
-  text-shadow:
-    0 0 10px #2DBCB0,
-    0 0 20px #2DBCB0,
-    0 0 30px #2DBCB0;
-  animation: pulse 2s ease-in-out infinite;
+  display: flex;
+  align-items: baseline;
+  gap: 0;
 }
 
-.hero-title::before {
+.logo-next {
+  color: #2DBCB0;
+  position: relative;
+}
+
+.logo-next::before {
   content: attr(data-text);
   position: absolute;
   left: 2px;
-  text-shadow: -2px 0 #ff00de;
+  text-shadow: -2px 0 rgba(255, 0, 222, 0.5);
   top: 0;
   color: #2DBCB0;
   overflow: hidden;
   animation: glitch-1 2.5s infinite;
 }
 
-.hero-title::after {
+.logo-next::after {
   content: attr(data-text);
   position: absolute;
   left: -2px;
-  text-shadow: 2px 0 #00fff2;
+  text-shadow: 2px 0 rgba(0, 255, 242, 0.5);
   top: 0;
   color: #2DBCB0;
   overflow: hidden;
   animation: glitch-2 3s infinite;
 }
 
-@keyframes pulse {
-  0%, 100% {
-    text-shadow:
-      0 0 10px #2DBCB0,
-      0 0 20px #2DBCB0,
-      0 0 30px #2DBCB0;
-  }
-  50% {
-    text-shadow:
-      0 0 15px #2DBCB0,
-      0 0 30px #2DBCB0,
-      0 0 45px #2DBCB0,
-      0 0 60px #2DBCB0;
-  }
+.logo-ti {
+  color: #1a1a1a;
+  position: relative;
 }
+
+.logo-ti::before {
+  content: attr(data-text);
+  position: absolute;
+  left: 2px;
+  text-shadow: -2px 0 rgba(255, 0, 222, 0.3);
+  top: 0;
+  color: #1a1a1a;
+  overflow: hidden;
+  animation: glitch-1 2.5s infinite;
+}
+
+.logo-ti::after {
+  content: attr(data-text);
+  position: absolute;
+  left: -2px;
+  text-shadow: 2px 0 rgba(0, 255, 242, 0.3);
+  top: 0;
+  color: #1a1a1a;
+  overflow: hidden;
+  animation: glitch-2 3s infinite;
+}
+
 
 @keyframes glitch-1 {
   0%, 100% {
@@ -198,20 +212,20 @@
   flex-direction: column;
   gap: 1rem;
   padding: 1.5rem;
-  color: rgba(45, 188, 176, 0.7);
+  color: rgba(45, 188, 176, 0.8);
 }
 
 .stream-label {
   font-size: 0.7rem;
   letter-spacing: 0.2em;
-  opacity: 0.5;
+  opacity: 0.6;
+  color: #1a1a1a;
 }
 
 .stream-text {
   font-size: 0.9rem;
   line-height: 1.8;
   color: #2DBCB0;
-  text-shadow: 0 0 5px #2DBCB0;
 }
 
 /* Hex Grid */
@@ -247,7 +261,6 @@
   font-size: 1.5rem;
   color: #2DBCB0;
   font-weight: 700;
-  text-shadow: 0 0 10px #2DBCB0;
   z-index: 1;
 }
 
@@ -291,9 +304,6 @@
 
 .btn-alien:hover {
   background: rgba(45, 188, 176, 0.1);
-  box-shadow:
-    0 0 20px rgba(45, 188, 176, 0.5),
-    inset 0 0 20px rgba(45, 188, 176, 0.2);
   transform: translateX(5px);
 }
 
@@ -344,7 +354,6 @@
 
 .terminal-text {
   letter-spacing: 0.1em;
-  text-shadow: 0 0 5px #2DBCB0;
 }
 
 /* Cursor Trail */
@@ -358,7 +367,6 @@
   z-index: 9999;
   transform: translate(-50%, -50%);
   transition: all 0.1s ease;
-  box-shadow: 0 0 10px #2DBCB0, inset 0 0 5px #2DBCB0;
 }
 
 /* Responsive */

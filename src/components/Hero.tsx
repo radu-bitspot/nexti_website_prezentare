@@ -3,7 +3,8 @@ import '../styles/Hero.css';
 import AnimatedShapes from './AnimatedShapes';
 
 const Hero: React.FC = () => {
-  const [glitchText, setGlitchText] = useState('NEXTI');
+  const [glitchText, setGlitchText] = useState('next');
+  const [glitchTI, setGlitchTI] = useState('TI');
   const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
 
   useEffect(() => {
@@ -16,12 +17,19 @@ const Hero: React.FC = () => {
 
   useEffect(() => {
     const interval = setInterval(() => {
-      const chars = 'NEXTI█▓▒░';
-      const glitch = Array.from({ length: 5 }, () =>
+      const chars = 'next█▓▒░';
+      const glitch = Array.from({ length: 4 }, () =>
         chars[Math.floor(Math.random() * chars.length)]
       ).join('');
       setGlitchText(glitch);
-      setTimeout(() => setGlitchText('NEXTI'), 100);
+      setTimeout(() => setGlitchText('next'), 100);
+
+      const charsTI = 'TI█▓▒░';
+      const glitchTI = Array.from({ length: 2 }, () =>
+        charsTI[Math.floor(Math.random() * charsTI.length)]
+      ).join('');
+      setGlitchTI(glitchTI);
+      setTimeout(() => setGlitchTI('TI'), 100);
     }, 3000);
     return () => clearInterval(interval);
   }, []);
@@ -39,8 +47,9 @@ const Hero: React.FC = () => {
       <div className="hero-grid">
         <div className="grid-item gi-1">
           <div className="glitch-wrapper">
-            <h1 className="hero-title" data-text={glitchText}>
-              {glitchText}
+            <h1 className="hero-title">
+              <span className="logo-next" data-text={glitchText}>{glitchText}</span>
+              <span className="logo-ti" data-text={glitchTI}>{glitchTI}</span>
             </h1>
           </div>
         </div>
