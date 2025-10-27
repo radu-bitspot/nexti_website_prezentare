@@ -1,5 +1,6 @@
 import React from 'react';
 import '../styles/Hero.css';
+import AnimatedShapes from './AnimatedShapes';
 
 const Hero: React.FC = () => {
   const scrollToContact = () => {
@@ -11,6 +12,7 @@ const Hero: React.FC = () => {
 
   return (
     <section id="hero" className="hero">
+      <AnimatedShapes />
       <div className="hero-container">
         <div className="hero-content">
           <h1 className="hero-title">

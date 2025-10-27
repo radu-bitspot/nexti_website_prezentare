@@ -1,0 +1,231 @@
+.shapes-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.shape {
+  position: absolute;
+  color: rgba(45, 188, 176, 0.15);
+  opacity: 0;
+  animation: float-shape 20s ease-in-out infinite;
+}
+
+/* Cube */
+.shape-cube {
+  width: 150px;
+  height: 150px;
+  top: 15%;
+  right: 8%;
+  animation: float-shape 25s ease-in-out infinite, rotate-3d 30s linear infinite;
+}
+
+.cube-group {
+  transform-origin: center;
+  animation: perspective-rotate 20s ease-in-out infinite;
+}
+
+/* Pyramid */
+.shape-pyramid {
+  width: 120px;
+  height: 120px;
+  top: 60%;
+  right: 15%;
+  animation: float-shape 22s ease-in-out infinite 2s, rotate-3d-reverse 25s linear infinite;
+}
+
+.pyramid-group {
+  transform-origin: center;
+  animation: perspective-tilt 18s ease-in-out infinite;
+}
+
+/* Octahedron */
+.shape-octahedron {
+  width: 130px;
+  height: 130px;
+  top: 35%;
+  right: 25%;
+  animation: float-shape 28s ease-in-out infinite 4s, rotate-3d 35s linear infinite;
+}
+
+.octahedron-group {
+  transform-origin: center;
+  animation: perspective-spin 22s ease-in-out infinite;
+}
+
+/* Torus */
+.shape-torus {
+  width: 140px;
+  height: 140px;
+  top: 75%;
+  right: 35%;
+  animation: float-shape 24s ease-in-out infinite 3s, rotate-3d-reverse 28s linear infinite;
+}
+
+.torus-group {
+  transform-origin: center;
+  animation: perspective-wobble 25s ease-in-out infinite;
+}
+
+/* Icosahedron */
+.shape-icosahedron {
+  width: 110px;
+  height: 110px;
+  top: 50%;
+  right: 5%;
+  animation: float-shape 26s ease-in-out infinite 5s, rotate-3d 32s linear infinite;
+}
+
+.icosahedron-group {
+  transform-origin: center;
+  animation: perspective-rotate 24s ease-in-out infinite reverse;
+}
+
+/* Tetrahedron */
+.shape-tetrahedron {
+  width: 100px;
+  height: 100px;
+  top: 20%;
+  right: 40%;
+  animation: float-shape 23s ease-in-out infinite 1s, rotate-3d-reverse 27s linear infinite;
+}
+
+.tetrahedron-group {
+  transform-origin: center;
+  animation: perspective-tilt 20s ease-in-out infinite reverse;
+}
+
+/* Keyframe Animations */
+
+@keyframes float-shape {
+  0% {
+    opacity: 0;
+    transform: translateY(0) translateX(0);
+  }
+  10% {
+    opacity: 1;
+  }
+  50% {
+    transform: translateY(-30px) translateX(20px);
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(0) translateX(0);
+  }
+}
+
+@keyframes rotate-3d {
+  from {
+    transform: rotateY(0deg) rotateX(0deg);
+  }
+  to {
+    transform: rotateY(360deg) rotateX(360deg);
+  }
+}
+
+@keyframes rotate-3d-reverse {
+  from {
+    transform: rotateY(0deg) rotateX(0deg) rotateZ(0deg);
+  }
+  to {
+    transform: rotateY(-360deg) rotateX(-360deg) rotateZ(-180deg);
+  }
+}
+
+@keyframes perspective-rotate {
+  0%, 100% {
+    transform: perspective(500px) rotateX(0deg) rotateY(0deg);
+  }
+  25% {
+    transform: perspective(500px) rotateX(15deg) rotateY(15deg);
+  }
+  50% {
+    transform: perspective(500px) rotateX(0deg) rotateY(30deg);
+  }
+  75% {
+    transform: perspective(500px) rotateX(-15deg) rotateY(15deg);
+  }
+}
+
+@keyframes perspective-tilt {
+  0%, 100% {
+    transform: perspective(500px) rotateX(0deg) rotateZ(0deg);
+  }
+  33% {
+    transform: perspective(500px) rotateX(20deg) rotateZ(10deg);
+  }
+  66% {
+    transform: perspective(500px) rotateX(-20deg) rotateZ(-10deg);
+  }
+}
+
+@keyframes perspective-spin {
+  0%, 100% {
+    transform: perspective(600px) rotateY(0deg) rotateX(10deg);
+  }
+  50% {
+    transform: perspective(600px) rotateY(180deg) rotateX(-10deg);
+  }
+}
+
+@keyframes perspective-wobble {
+  0%, 100% {
+    transform: perspective(500px) rotateX(0deg) rotateY(0deg) rotateZ(0deg);
+  }
+  20% {
+    transform: perspective(500px) rotateX(10deg) rotateY(10deg) rotateZ(5deg);
+  }
+  40% {
+    transform: perspective(500px) rotateX(-10deg) rotateY(20deg) rotateZ(-5deg);
+  }
+  60% {
+    transform: perspective(500px) rotateX(10deg) rotateY(-10deg) rotateZ(5deg);
+  }
+  80% {
+    transform: perspective(500px) rotateX(-10deg) rotateY(-20deg) rotateZ(-5deg);
+  }
+}
+
+/* Responsive adjustments */
+@media (max-width: 968px) {
+  .shape {
+    opacity: 0.5;
+  }
+
+  .shape-cube,
+  .shape-pyramid,
+  .shape-octahedron {
+    width: 100px;
+    height: 100px;
+  }
+
+  .shape-torus,
+  .shape-icosahedron,
+  .shape-tetrahedron {
+    width: 80px;
+    height: 80px;
+  }
+}
+
+@media (max-width: 768px) {
+  .shape {
+    display: none; /* Hide on mobile for performance */
+  }
+}
+
+/* Reduce motion for accessibility */
+@media (prefers-reduced-motion: reduce) {
+  .shape,
+  .shape * {
+    animation: none !important;
+    opacity: 0.3;
+  }
+}
