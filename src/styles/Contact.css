@@ -69,8 +69,8 @@
 }
 
 .form-input {
-  padding: 1.2rem 0;
-  border: none;
+  padding: 1rem;
+  border: 1px solid #e0e0e0;
   font-size: 1.1rem;
   font-family: 'Courier New', monospace;
   transition: all 0.3s ease;
@@ -80,6 +80,7 @@
 
 .form-input:focus {
   outline: none;
+  border-color: #2DBCB0;
 }
 
 .form-input::placeholder {

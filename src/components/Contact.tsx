@@ -98,7 +98,12 @@ const Contact: React.FC = () => {
             </div>
             <div className="detail-block">
               <h3 className="detail-label">Telefon</h3>
-              <a href="tel:+40" className="detail-value">+40 XXX XXX XXX</a>
+              <a href="tel:+40738168577" className="detail-value">+40 738 168 577</a>
+            </div>
+            <div className="detail-block">
+              <h3 className="detail-label">Web</h3>
+              <a href="http://127.0.0.1:3000" target="_blank" rel="noopener noreferrer" className="detail-value">127.0.0.1</a>
+              <a href="https://nexti.ro" target="_blank" rel="noopener noreferrer" className="detail-value">nexti.ro</a>
             </div>
             <div className="detail-block">
               <h3 className="detail-label">Locație</h3>
