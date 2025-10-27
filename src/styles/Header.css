@@ -7,11 +7,7 @@
   background: rgba(255, 255, 255, 0.98);
   backdrop-filter: blur(10px);
   transition: all 0.3s ease;
-  border-bottom: 1px solid transparent;
-}
-
-.header.scrolled {
-  border-bottom: 1px solid #e0e0e0;
+  font-family: 'Courier New', monospace;
 }
 
 .header-container {
@@ -51,53 +47,35 @@
   background: none;
   border: none;
   color: #1a1a1a;
-  font-size: 0.9rem;
+  font-size: 0.85rem;
   font-weight: 500;
   cursor: pointer;
   transition: all 0.2s ease;
   padding: 0;
   position: relative;
   text-transform: uppercase;
-  letter-spacing: 0.08em;
-}
-
-.nav-link::after {
-  content: '';
-  position: absolute;
-  bottom: -5px;
-  left: 0;
-  width: 0;
-  height: 1px;
-  background: #1a1a1a;
-  transition: width 0.3s ease;
+  letter-spacing: 0.2em;
+  font-family: 'Courier New', monospace;
 }
 
 .nav-link:hover {
-  color: #1a1a1a;
-}
-
-.nav-link:hover::after {
-  width: 100%;
+  color: #2DBCB0;
 }
 
 .contact-btn {
-  background: #1a1a1a;
-  color: white;
+  background: transparent;
+  color: #2DBCB0;
   padding: 0.8rem 2rem;
-  border-radius: 0;
+  border: 1px solid #2DBCB0;
   transition: all 0.3s ease;
   text-transform: uppercase;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.2em;
   font-size: 0.85rem;
-}
-
-.contact-btn::after {
-  display: none;
 }
 
 .contact-btn:hover {
   background: #2DBCB0;
-  transform: translateX(5px);
+  transform: translateX(3px);
   color: white;
 }
 

@@ -1,7 +1,8 @@
 .contact {
   padding: 8rem 2rem;
-  background: #1a1a1a;
-  color: white;
+  background: #FFFFFF;
+  color: #1a1a1a;
+  font-family: 'Courier New', monospace;
 }
 
 .contact-container {
@@ -20,7 +21,7 @@
   line-height: 1.1;
   margin-bottom: 2rem;
   letter-spacing: -0.03em;
-  color: white;
+  color: #1a1a1a;
 }
 
 .highlight-text {
@@ -29,9 +30,10 @@
 }
 
 .contact-intro {
-  font-size: 1.4rem;
-  color: #999;
+  font-size: 1.2rem;
+  color: #666;
   max-width: 600px;
+  letter-spacing: 0.05em;
 }
 
 .contact-grid {
@@ -59,32 +61,29 @@
 }
 
 .form-label {
-  font-size: 0.9rem;
-  color: #999;
+  font-size: 0.85rem;
+  color: #666;
   text-transform: uppercase;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.2em;
   font-weight: 500;
 }
 
 .form-input {
   padding: 1.2rem 0;
   border: none;
-  border-bottom: 1px solid #333;
   font-size: 1.1rem;
-  font-family: inherit;
+  font-family: 'Courier New', monospace;
   transition: all 0.3s ease;
   background: transparent;
-  color: white;
-  border-radius: 0;
+  color: #1a1a1a;
 }
 
 .form-input:focus {
   outline: none;
-  border-bottom-color: #2DBCB0;
 }
 
 .form-input::placeholder {
-  color: #666;
+  color: #999;
 }
 
 .form-textarea {
@@ -93,25 +92,25 @@
 }
 
 .btn-submit {
-  padding: 1.2rem 3rem;
-  background: #2DBCB0;
-  color: #1a1a1a;
-  border: none;
-  border-radius: 0;
-  font-size: 0.95rem;
-  font-weight: 700;
+  padding: 1rem 2.5rem;
+  background: transparent;
+  color: #2DBCB0;
+  border: 1px solid #2DBCB0;
+  font-size: 0.9rem;
+  font-weight: 500;
   cursor: pointer;
   transition: all 0.3s ease;
-  font-family: inherit;
+  font-family: 'Courier New', monospace;
   text-transform: uppercase;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.2em;
   justify-self: start;
   margin-top: 1rem;
 }
 
 .btn-submit:hover {
-  background: white;
-  transform: translateX(5px);
+  background: #2DBCB0;
+  color: white;
+  transform: translateX(3px);
 }
 
 .btn-submit:active {
@@ -129,26 +128,19 @@
   display: flex;
   flex-direction: column;
   gap: 0.75rem;
-  padding-bottom: 3rem;
-  border-bottom: 1px solid #333;
-}
-
-.detail-block:last-child {
-  border-bottom: none;
-  padding-bottom: 0;
 }
 
 .detail-label {
   font-size: 0.85rem;
   color: #666;
   text-transform: uppercase;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.2em;
   font-weight: 500;
 }
 
 .detail-value {
   font-size: 1.3rem;
-  color: white;
+  color: #1a1a1a;
   font-weight: 500;
   text-decoration: none;
   transition: color 0.3s ease;

@@ -1,6 +1,7 @@
 .about {
   padding: 10rem 2rem;
-  background: white;
+  background: #FFFFFF;
+  font-family: 'Courier New', monospace;
 }
 
 .about-container {
@@ -44,6 +45,7 @@
   font-size: 1.6rem;
   color: #1a1a1a;
   font-weight: 500;
+  letter-spacing: 0.02em;
 }
 
 .about-principles {
@@ -52,7 +54,6 @@
   gap: 3rem;
   margin-top: 4rem;
   padding-top: 4rem;
-  border-top: 1px solid #e0e0e0;
 }
 
 .principle-item {

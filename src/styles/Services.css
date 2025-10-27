@@ -1,6 +1,7 @@
 .services {
   padding: 8rem 2rem;
-  background: #fafafa;
+  background: #FFFFFF;
+  font-family: 'Courier New', monospace;
 }
 
 .services-container {
@@ -27,6 +28,7 @@
   color: #666;
   max-width: 500px;
   margin: 0;
+  letter-spacing: 0.05em;
 }
 
 .services-list {
@@ -41,20 +43,9 @@
   gap: 3rem;
   align-items: center;
   padding: 3rem 2rem;
-  border-bottom: 1px solid #e0e0e0;
   transition: all 0.3s ease;
   cursor: pointer;
   background: transparent;
-}
-
-.service-item:hover {
-  background: white;
-  padding-left: 3rem;
-  border-bottom-color: #2DBCB0;
-}
-
-.service-item:first-child {
-  border-top: 1px solid #e0e0e0;
 }
 
 .service-number {
@@ -90,10 +81,10 @@
 }
 
 .service-subtitle {
-  font-size: 0.9rem;
-  color: #999;
+  font-size: 0.85rem;
+  color: #2DBCB0;
   text-transform: uppercase;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.2em;
   font-weight: 500;
 }
 
