@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from 'react';
+import { useTranslation } from 'react-i18next';
 import '../styles/Hero.css';
 import AnimatedShapes from './AnimatedShapes';
 
 const Hero: React.FC = () => {
+  const { t } = useTranslation();
   const [glitchText, setGlitchText] = useState('next');
   const [glitchTI, setGlitchTI] = useState('TI');
   const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
@@ -53,15 +55,15 @@ const Hero: React.FC = () => {
         </div>
 
         <p className="hero-subtitle">
-          Consultanță IT · Dezvoltare Software · Cloud Solutions
+          {t('hero.subtitle')}
         </p>
 
         <div className="hero-actions">
           <button onClick={scrollToContact} className="btn-alien">
-            CONTACT
+            {t('hero.contact')}
           </button>
           <button onClick={() => document.getElementById('services')?.scrollIntoView({ behavior: 'smooth' })} className="btn-alien-secondary">
-            SERVICII
+            {t('hero.services')}
           </button>
         </div>
       </div>

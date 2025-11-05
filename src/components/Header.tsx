@@ -1,9 +1,13 @@
 import React, { useState, useEffect } from 'react';
+import { useTranslation } from 'react-i18next';
+import { useNavigate } from 'react-router-dom';
 import '../styles/Header.css';
 
 const Header: React.FC = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const { t, i18n } = useTranslation();
+  const navigate = useNavigate();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -20,6 +24,11 @@ const Header: React.FC = () => {
       element.scrollIntoView({ behavior: 'smooth' });
       setIsMobileMenuOpen(false);
     }
+  };
+
+  const toggleLanguage = () => {
+    const newLang = i18n.language === 'en' ? 'ro' : 'en';
+    navigate(`/${newLang}`);
   };
 
   return (
@@ -40,13 +49,16 @@ const Header: React.FC = () => {
 
         <nav className={`nav ${isMobileMenuOpen ? 'mobile-open' : ''}`}>
           <button onClick={() => scrollToSection('services')} className="nav-link">
-            Servicii
+            {t('header.services')}
           </button>
           <button onClick={() => scrollToSection('about')} className="nav-link">
-            Despre Noi
+            {t('header.about')}
           </button>
           <button onClick={() => scrollToSection('contact')} className="nav-link contact-btn">
-            Contact
+            {t('header.contact')}
+          </button>
+          <button onClick={toggleLanguage} className="nav-link language-toggle">
+            {i18n.language === 'en' ? 'RO' : 'EN'}
           </button>
         </nav>
       </div>

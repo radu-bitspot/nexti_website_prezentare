@@ -1,0 +1,138 @@
+{
+  "header": {
+    "services": "Servicii",
+    "about": "Despre Noi",
+    "contact": "Contact"
+  },
+  "hero": {
+    "subtitle": "Consultanță IT · Dezvoltare Software · Cloud Solutions",
+    "contact": "CONTACT",
+    "services": "SERVICII"
+  },
+  "services": {
+    "title": "Ce facem",
+    "subtitle": "Servicii IT concrete, fără buzzwords",
+    "items": [
+      {
+        "number": "01",
+        "title": "Software",
+        "subtitle": "Custom Development",
+        "description": "De la concept la producție. Aplicații web și mobile care rezolvă probleme reale."
+      },
+      {
+        "number": "02",
+        "title": "Cloud",
+        "subtitle": "Infrastructure & DevOps",
+        "description": "Arhitectură cloud scalabilă. Deployment automatizat. Zero downtime."
+      },
+      {
+        "number": "03",
+        "title": "Security",
+        "subtitle": "Cyber Protection",
+        "description": "Protecție proactivă. Audit complet. Peace of mind pentru business-ul tău."
+      },
+      {
+        "number": "04",
+        "title": "Consulting",
+        "subtitle": "Digital Strategy",
+        "description": "Strategie tehnologică clară. ROI măsurabil. Parteneriat pe termen lung."
+      },
+      {
+        "number": "05",
+        "title": "Support",
+        "subtitle": "24/7 Maintenance",
+        "description": "Monitorizare continuă. Răspuns rapid. Sisteme care funcționează mereu."
+      },
+      {
+        "number": "06",
+        "title": "Automation",
+        "subtitle": "Process Optimization",
+        "description": "Elimină task-urile repetitive. Crește eficiența. Focus pe ce contează."
+      }
+    ]
+  },
+  "about": {
+    "title": "De ce NexTI?",
+    "description1": "Nu suntem doar o companie IT. Suntem partenerii tăi în transformare digitală.",
+    "description2": "Fiecare linie de cod pe care o scriem are un scop: să rezolve probleme reale, să simplifice procese complexe, să aducă rezultate măsurabile.",
+    "description3": "Tehnologia e doar un instrument. Noi ne concentrăm pe impact.",
+    "principles": [
+      {
+        "number": "01",
+        "text": "Transparență totală în fiecare proiect"
+      },
+      {
+        "number": "02",
+        "text": "Cod de calitate, nu doar cod functional"
+      },
+      {
+        "number": "03",
+        "text": "Partnership pe termen lung, nu tranzacții"
+      }
+    ],
+    "stats": [
+      {
+        "number": "10+",
+        "label": "Ani Experiență"
+      },
+      {
+        "number": "50+",
+        "label": "Proiecte Finalizate"
+      },
+      {
+        "number": "30+",
+        "label": "Clienți Mulțumiți"
+      },
+      {
+        "number": "24/7",
+        "label": "Suport Dedicat"
+      }
+    ]
+  },
+  "contact": {
+    "title": "Hai să creăm<br />ceva <span class=\"highlight-text\">remarcabil</span>",
+    "intro": "Fiecare proiect începe cu o conversație. Spune-ne despre ideea ta.",
+    "form": {
+      "name": "Nume",
+      "email": "Email",
+      "company": "Companie",
+      "message": "Mesaj",
+      "submit": "Trimite",
+      "sending": "Se trimite...",
+      "submitted": "Mesaj trimis",
+      "success": "Mesajul a fost trimis cu succes! Vă vom răspunde în maximum 24h.",
+      "required": "*",
+      "errors": {
+        "generic": "A apărut o eroare. Vă rugăm să încercați din nou sau să ne contactați direct la contact@nexti.ro",
+        "invalidConfig": "Configurație email invalidă. Vă rugăm să ne contactați direct la contact@nexti.ro",
+        "templateNotFound": "Eroare de configurare. Vă rugăm să ne contactați direct la contact@nexti.ro"
+      }
+    },
+    "details": {
+      "email": "Email",
+      "phone": "Telefon",
+      "web": "Web",
+      "location": "Locație",
+      "locationValue": "România",
+      "responseTime": "Timp de răspuns",
+      "responseTimeValue": "24h"
+    }
+  },
+  "footer": {
+    "tagline": "Consultanță și Soluții IT",
+    "services": "Servicii",
+    "servicesList": {
+      "development": "Dezvoltare Software",
+      "cloud": "Cloud Solutions",
+      "security": "Securitate IT",
+      "consulting": "Consultanță"
+    },
+    "company": "Companie",
+    "companyList": {
+      "about": "Despre Noi",
+      "contact": "Contact"
+    },
+    "connect": "Connect",
+    "copyright": "Toate drepturile rezervate."
+  }
+}

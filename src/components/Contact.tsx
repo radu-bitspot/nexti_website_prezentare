@@ -1,7 +1,11 @@
 import React, { useState } from 'react';
+import { useTranslation } from 'react-i18next';
+import emailjs from '@emailjs/browser';
+import { EMAILJS_CONFIG } from '../config/emailjs.config';
 import '../styles/Contact.css';
 
 const Contact: React.FC = () => {
+  const { t } = useTranslation();
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -10,6 +14,8 @@ const Contact: React.FC = () => {
   });
 
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState<string | null>(null);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setFormData({
@@ -18,24 +24,66 @@ const Contact: React.FC = () => {
     });
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Aici vei adăuga logica de trimitere a formularului
-    console.log('Form submitted:', formData);
-    setIsSubmitted(true);
-    setTimeout(() => {
-      setIsSubmitted(false);
+    setIsLoading(true);
+    setError(null);
+
+    try {
+      // EmailJS template parameters
+      const templateParams = {
+        from_name: formData.name,
+        from_email: formData.email,
+        company: formData.company || 'N/A',
+        message: formData.message,
+        to_email: 'contact@nexti.ro' // Your receiving email
+      };
+
+      // Send email using EmailJS
+      const response = await emailjs.send(
+        EMAILJS_CONFIG.SERVICE_ID,
+        EMAILJS_CONFIG.TEMPLATE_ID,
+        templateParams,
+        EMAILJS_CONFIG.PUBLIC_KEY
+      );
+
+      console.log('Email sent successfully:', response);
+      setIsSubmitted(true);
       setFormData({ name: '', email: '', company: '', message: '' });
-    }, 3000);
+
+      // Reset success message after 5 seconds
+      setTimeout(() => {
+        setIsSubmitted(false);
+      }, 5000);
+
+    } catch (err: any) {
+      console.error('Failed to send email:', err);
+
+      // User-friendly error messages
+      if (err.text === 'The public key is invalid') {
+        setError(t('contact.form.errors.invalidConfig'));
+      } else if (err.text?.includes('not found')) {
+        setError(t('contact.form.errors.templateNotFound'));
+      } else {
+        setError(t('contact.form.errors.generic'));
+      }
+
+      // Clear error after 7 seconds
+      setTimeout(() => {
+        setError(null);
+      }, 7000);
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   return (
     <section id="contact" className="contact">
       <div className="contact-container">
         <div className="contact-header">
-          <h2 className="contact-title">Hai să creăm<br />ceva <span className="highlight-text">remarcabil</span></h2>
+          <h2 className="contact-title" dangerouslySetInnerHTML={{ __html: t('contact.title') }}></h2>
           <p className="contact-intro">
-            Fiecare proiect începe cu o conversație. Spune-ne despre ideea ta.
+            {t('contact.intro')}
           </p>
         </div>
 
@@ -43,7 +91,7 @@ const Contact: React.FC = () => {
           <form className="contact-form" onSubmit={handleSubmit}>
             <div className="form-row">
               <div className="form-group">
-                <label className="form-label">Nume *</label>
+                <label className="form-label">{t('contact.form.name')} {t('contact.form.required')}</label>
                 <input
                   type="text"
                   name="name"
@@ -54,7 +102,7 @@ const Contact: React.FC = () => {
                 />
               </div>
               <div className="form-group">
-                <label className="form-label">Email *</label>
+                <label className="form-label">{t('contact.form.email')} {t('contact.form.required')}</label>
                 <input
                   type="email"
                   name="email"
@@ -66,7 +114,7 @@ const Contact: React.FC = () => {
               </div>
             </div>
             <div className="form-group">
-              <label className="form-label">Companie</label>
+              <label className="form-label">{t('contact.form.company')}</label>
               <input
                 type="text"
                 name="company"
@@ -76,7 +124,7 @@ const Contact: React.FC = () => {
               />
             </div>
             <div className="form-group">
-              <label className="form-label">Mesaj *</label>
+              <label className="form-label">{t('contact.form.message')} {t('contact.form.required')}</label>
               <textarea
                 name="message"
                 value={formData.message}
@@ -86,31 +134,33 @@ const Contact: React.FC = () => {
                 className="form-input form-textarea"
               />
             </div>
-            <button type="submit" className="btn-submit">
-              {isSubmitted ? 'Mesaj trimis' : 'Trimite'}
+            <button type="submit" className="btn-submit" disabled={isLoading}>
+              {isLoading ? t('contact.form.sending') : isSubmitted ? t('contact.form.submitted') : t('contact.form.submit')}
             </button>
+            {error && <div className="form-error">{error}</div>}
+            {isSubmitted && <div className="form-success">{t('contact.form.success')}</div>}
           </form>
 
           <div className="contact-details">
             <div className="detail-block">
-              <h3 className="detail-label">Email</h3>
+              <h3 className="detail-label">{t('contact.details.email')}</h3>
               <a href="mailto:contact@nexti.ro" className="detail-value">contact@nexti.ro</a>
             </div>
             <div className="detail-block">
-              <h3 className="detail-label">Telefon</h3>
+              <h3 className="detail-label">{t('contact.details.phone')}</h3>
               <a href="tel:+40738168577" className="detail-value">+40 738 168 577</a>
             </div>
             <div className="detail-block">
-              <h3 className="detail-label">Web</h3>
+              <h3 className="detail-label">{t('contact.details.web')}</h3>
               <a href="https://nexti.ro" target="_blank" rel="noopener noreferrer" className="detail-value">nexti.ro</a>
             </div>
             <div className="detail-block">
-              <h3 className="detail-label">Locație</h3>
-              <p className="detail-value">România</p>
+              <h3 className="detail-label">{t('contact.details.location')}</h3>
+              <p className="detail-value">{t('contact.details.locationValue')}</p>
             </div>
             <div className="detail-block">
-              <h3 className="detail-label">Timp de răspuns</h3>
-              <p className="detail-value">24h</p>
+              <h3 className="detail-label">{t('contact.details.responseTime')}</h3>
+              <p className="detail-value">{t('contact.details.responseTimeValue')}</p>
             </div>
           </div>
         </div>

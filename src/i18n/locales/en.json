@@ -1,0 +1,138 @@
+{
+  "header": {
+    "services": "Services",
+    "about": "About Us",
+    "contact": "Contact"
+  },
+  "hero": {
+    "subtitle": "IT Consulting · Software Development · Cloud Solutions",
+    "contact": "CONTACT",
+    "services": "SERVICES"
+  },
+  "services": {
+    "title": "What we do",
+    "subtitle": "Concrete IT services, no buzzwords",
+    "items": [
+      {
+        "number": "01",
+        "title": "Software",
+        "subtitle": "Custom Development",
+        "description": "From concept to production. Web and mobile applications that solve real problems."
+      },
+      {
+        "number": "02",
+        "title": "Cloud",
+        "subtitle": "Infrastructure & DevOps",
+        "description": "Scalable cloud architecture. Automated deployment. Zero downtime."
+      },
+      {
+        "number": "03",
+        "title": "Security",
+        "subtitle": "Cyber Protection",
+        "description": "Proactive protection. Complete audit. Peace of mind for your business."
+      },
+      {
+        "number": "04",
+        "title": "Consulting",
+        "subtitle": "Digital Strategy",
+        "description": "Clear technology strategy. Measurable ROI. Long-term partnership."
+      },
+      {
+        "number": "05",
+        "title": "Support",
+        "subtitle": "24/7 Maintenance",
+        "description": "Continuous monitoring. Fast response. Systems that always work."
+      },
+      {
+        "number": "06",
+        "title": "Automation",
+        "subtitle": "Process Optimization",
+        "description": "Eliminate repetitive tasks. Increase efficiency. Focus on what matters."
+      }
+    ]
+  },
+  "about": {
+    "title": "Why NexTI?",
+    "description1": "We're not just an IT company. We're your partners in digital transformation.",
+    "description2": "Every line of code we write has a purpose: to solve real problems, simplify complex processes, deliver measurable results.",
+    "description3": "Technology is just a tool. We focus on impact.",
+    "principles": [
+      {
+        "number": "01",
+        "text": "Total transparency in every project"
+      },
+      {
+        "number": "02",
+        "text": "Quality code, not just functional code"
+      },
+      {
+        "number": "03",
+        "text": "Long-term partnership, not transactions"
+      }
+    ],
+    "stats": [
+      {
+        "number": "10+",
+        "label": "Years Experience"
+      },
+      {
+        "number": "50+",
+        "label": "Completed Projects"
+      },
+      {
+        "number": "30+",
+        "label": "Happy Clients"
+      },
+      {
+        "number": "24/7",
+        "label": "Dedicated Support"
+      }
+    ]
+  },
+  "contact": {
+    "title": "Let's create<br />something <span class=\"highlight-text\">remarkable</span>",
+    "intro": "Every project starts with a conversation. Tell us about your idea.",
+    "form": {
+      "name": "Name",
+      "email": "Email",
+      "company": "Company",
+      "message": "Message",
+      "submit": "Submit",
+      "sending": "Sending...",
+      "submitted": "Message sent",
+      "success": "Your message has been sent successfully! We'll respond within 24h.",
+      "required": "*",
+      "errors": {
+        "generic": "An error occurred. Please try again or contact us directly at contact@nexti.ro",
+        "invalidConfig": "Invalid email configuration. Please contact us directly at contact@nexti.ro",
+        "templateNotFound": "Configuration error. Please contact us directly at contact@nexti.ro"
+      }
+    },
+    "details": {
+      "email": "Email",
+      "phone": "Phone",
+      "web": "Web",
+      "location": "Location",
+      "locationValue": "Romania",
+      "responseTime": "Response Time",
+      "responseTimeValue": "24h"
+    }
+  },
+  "footer": {
+    "tagline": "IT Consulting & Solutions",
+    "services": "Services",
+    "servicesList": {
+      "development": "Software Development",
+      "cloud": "Cloud Solutions",
+      "security": "IT Security",
+      "consulting": "Consulting"
+    },
+    "company": "Company",
+    "companyList": {
+      "about": "About Us",
+      "contact": "Contact"
+    },
+    "connect": "Connect",
+    "copyright": "All rights reserved."
+  }
+}

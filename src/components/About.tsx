@@ -1,48 +1,37 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import '../styles/About.css';
 
 const About: React.FC = () => {
-  const stats = [
-    { number: '10+', label: 'Ani Experiență' },
-    { number: '50+', label: 'Proiecte Finalizate' },
-    { number: '30+', label: 'Clienți Mulțumiți' },
-    { number: '24/7', label: 'Suport Dedicat' }
-  ];
+  const { t } = useTranslation();
 
   return (
     <section id="about" className="about">
       <div className="about-container">
         <div className="about-grid">
           <div className="about-intro">
-            <h2 className="section-title">De ce NexTI?</h2>
+            <h2 className="section-title">{t('about.title')}</h2>
           </div>
 
           <div className="about-content">
             <p className="about-description">
-              Nu suntem doar o companie IT. Suntem partenerii tăi în transformare digitală.
+              {t('about.description1')}
             </p>
             <p className="about-description">
-              Fiecare linie de cod pe care o scriem are un scop: să rezolve probleme reale,
-              să simplifice procese complexe, să aducă rezultate măsurabile.
+              {t('about.description2')}
             </p>
             <p className="about-description">
-              Tehnologia e doar un instrument. Noi ne concentrăm pe impact.
+              {t('about.description3')}
             </p>
           </div>
 
           <div className="about-principles">
-            <div className="principle-item">
-              <h3 className="principle-number">01</h3>
-              <p className="principle-text">Transparență totală în fiecare proiect</p>
-            </div>
-            <div className="principle-item">
-              <h3 className="principle-number">02</h3>
-              <p className="principle-text">Cod de calitate, nu doar cod functional</p>
-            </div>
-            <div className="principle-item">
-              <h3 className="principle-number">03</h3>
-              <p className="principle-text">Partnership pe termen lung, nu tranzacții</p>
-            </div>
+            {t('about.principles', { returnObjects: true }).map((principle: any, index: number) => (
+              <div key={index} className="principle-item">
+                <h3 className="principle-number">{principle.number}</h3>
+                <p className="principle-text">{principle.text}</p>
+              </div>
+            ))}
           </div>
         </div>
       </div>
