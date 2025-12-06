@@ -1,0 +1,651 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Turneu Tenis - 7 Jucători</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+        }
+
+        h1 {
+            text-align: center;
+            color: #667eea;
+            margin-bottom: 10px;
+            font-size: 2.5em;
+        }
+
+        .subtitle {
+            text-align: center;
+            color: #666;
+            margin-bottom: 30px;
+            font-size: 1.1em;
+        }
+
+        .players-section {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 15px;
+            margin-bottom: 30px;
+        }
+
+        .skill-group {
+            margin-bottom: 15px;
+        }
+
+        .skill-label {
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 5px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .skill-badge {
+            padding: 3px 10px;
+            border-radius: 12px;
+            font-size: 0.85em;
+            color: white;
+        }
+
+        .advanced { background: #dc3545; }
+        .intermediate { background: #ffc107; }
+        .beginner { background: #28a745; }
+
+        .player-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-left: 20px;
+        }
+
+        .player-tag {
+            background: white;
+            padding: 8px 15px;
+            border-radius: 20px;
+            border: 2px solid #ddd;
+            font-size: 0.95em;
+        }
+
+        .btn-group {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            margin-bottom: 30px;
+        }
+
+        .btn {
+            padding: 15px 30px;
+            font-size: 1.1em;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-weight: bold;
+        }
+
+        .btn-primary {
+            background: #667eea;
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: #5568d3;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+        }
+
+        .btn-secondary {
+            background: #6c757d;
+            color: white;
+        }
+
+        .btn-secondary:hover {
+            background: #5a6268;
+            transform: translateY(-2px);
+        }
+
+        .matches-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .match-card {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            border-radius: 15px;
+            padding: 20px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .match-header {
+            font-size: 1.2em;
+            font-weight: bold;
+            color: #667eea;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+
+        .team {
+            background: white;
+            padding: 15px;
+            border-radius: 10px;
+            margin-bottom: 10px;
+        }
+
+        .team-label {
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 8px;
+            font-size: 0.9em;
+        }
+
+        .team-players {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+
+        .player-name {
+            padding: 8px 12px;
+            background: #f8f9fa;
+            border-radius: 8px;
+            border-left: 4px solid #667eea;
+            font-size: 0.95em;
+        }
+
+        .waiting-players {
+            background: #fff3cd;
+            padding: 15px;
+            border-radius: 10px;
+            border: 2px solid #ffc107;
+        }
+
+        .waiting-label {
+            font-weight: bold;
+            color: #856404;
+            margin-bottom: 8px;
+        }
+
+        .score-input {
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+            align-items: center;
+            margin-top: 15px;
+            padding-top: 15px;
+            border-top: 2px dashed #ddd;
+        }
+
+        .score-input input {
+            width: 60px;
+            padding: 8px;
+            font-size: 1.2em;
+            text-align: center;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+        }
+
+        .score-input button {
+            padding: 8px 20px;
+            background: #28a745;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        .score-input button:hover {
+            background: #218838;
+        }
+
+        .bracket-section {
+            margin-top: 40px;
+        }
+
+        .bracket-title {
+            font-size: 1.8em;
+            color: #333;
+            margin-bottom: 20px;
+            text-align: center;
+            padding: 15px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border-radius: 15px;
+        }
+
+        .bracket-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+        }
+
+        .bracket-match {
+            background: white;
+            border: 3px solid #667eea;
+            border-radius: 12px;
+            padding: 15px;
+            position: relative;
+        }
+
+        .bracket-match.winner {
+            border-color: #28a745;
+            background: #f0fff4;
+        }
+
+        .bracket-match.loser {
+            border-color: #dc3545;
+            background: #fff5f5;
+        }
+
+        .bracket-team {
+            padding: 10px;
+            margin: 5px 0;
+            border-radius: 8px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .bracket-team.won {
+            background: #d4edda;
+            border: 2px solid #28a745;
+            font-weight: bold;
+        }
+
+        .bracket-team.lost {
+            background: #f8d7da;
+            border: 2px solid #dc3545;
+            opacity: 0.7;
+        }
+
+        .match-score {
+            font-size: 1.5em;
+            font-weight: bold;
+            color: #667eea;
+        }
+
+        .round-label {
+            position: absolute;
+            top: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #667eea;
+            color: white;
+            padding: 4px 15px;
+            border-radius: 20px;
+            font-size: 0.85em;
+            font-weight: bold;
+        }
+
+        .stats-section {
+            margin-top: 40px;
+            padding: 25px;
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            border-radius: 15px;
+            color: white;
+        }
+
+        .stats-title {
+            font-size: 1.5em;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+        }
+
+        .stat-card {
+            background: rgba(255, 255, 255, 0.2);
+            padding: 15px;
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        .stat-value {
+            font-size: 2em;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        .stat-label {
+            font-size: 0.9em;
+            opacity: 0.9;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 15px;
+            }
+
+            h1 {
+                font-size: 1.8em;
+            }
+
+            .matches-container {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🎾 Turneu Tenis</h1>
+        <p class="subtitle">Format Dublu - 7 Jucători (4 vs 4 pe teren)</p>
+
+        <div class="players-section">
+            <div class="skill-group">
+                <div class="skill-label">
+                    <span class="skill-badge advanced">Avansați</span>
+                </div>
+                <div class="player-list">
+                    <span class="player-tag">Radu</span>
+                    <span class="player-tag">Jordan</span>
+                    <span class="player-tag">Brez</span>
+                </div>
+            </div>
+
+            <div class="skill-group">
+                <div class="skill-label">
+                    <span class="skill-badge intermediate">Medii</span>
+                </div>
+                <div class="player-list">
+                    <span class="player-tag">Alex</span>
+                    <span class="player-tag">Flavia</span>
+                </div>
+            </div>
+
+            <div class="skill-group">
+                <div class="skill-label">
+                    <span class="skill-badge beginner">Începători</span>
+                </div>
+                <div class="player-list">
+                    <span class="player-tag">Bogdan</span>
+                    <span class="player-tag">Andreea</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="btn-group">
+            <button class="btn btn-primary" onclick="generateTournament()">🎯 Generează Turneu</button>
+            <button class="btn btn-secondary" onclick="resetTournament()">🔄 Reset</button>
+        </div>
+
+        <div id="matchesSection" class="hidden">
+            <h2 style="text-align: center; color: #667eea; margin-bottom: 20px;">Meciuri Rundă 1</h2>
+            <div id="matchesContainer" class="matches-container"></div>
+        </div>
+
+        <div id="bracketSection" class="hidden">
+            <div class="bracket-section">
+                <div class="bracket-title">🏆 Bracket Câștigători</div>
+                <div id="winnerBracket" class="bracket-container"></div>
+            </div>
+
+            <div class="bracket-section">
+                <div class="bracket-title">📉 Bracket Învinși</div>
+                <div id="loserBracket" class="bracket-container"></div>
+            </div>
+        </div>
+
+        <div id="statsSection" class="hidden">
+            <div class="stats-section">
+                <div class="stats-title">📊 Statistici Turneu</div>
+                <div class="stats-grid" id="statsGrid"></div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const players = {
+            advanced: ['Radu', 'Jordan', 'Brez'],
+            intermediate: ['Alex', 'Flavia'],
+            beginner: ['Bogdan', 'Andreea']
+        };
+
+        let matches = [];
+        let matchResults = [];
+        let playerStats = {};
+
+        function shuffle(array) {
+            const arr = [...array];
+            for (let i = arr.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [arr[i], arr[j]] = [arr[j], arr[i]];
+            }
+            return arr;
+        }
+
+        function balanceTeam(team) {
+            let score = 0;
+            team.forEach(player => {
+                if (players.advanced.includes(player)) score += 3;
+                else if (players.intermediate.includes(player)) score += 2;
+                else score += 1;
+            });
+            return score;
+        }
+
+        function generateBalancedMatches() {
+            const allPlayers = [...players.advanced, ...players.intermediate, ...players.beginner];
+            const shuffled = shuffle(allPlayers);
+            
+            matches = [];
+            
+            // Meci 1: primii 4 jucători
+            let team1 = [shuffled[0], shuffled[1]];
+            let team2 = [shuffled[2], shuffled[3]];
+            let waiting = [shuffled[4], shuffled[5], shuffled[6]];
+            matches.push({ team1, team2, waiting });
+
+            // Meci 2: rotăm jucătorii
+            team1 = [shuffled[4], shuffled[0]];
+            team2 = [shuffled[5], shuffled[1]];
+            waiting = [shuffled[2], shuffled[3], shuffled[6]];
+            matches.push({ team1, team2, waiting });
+
+            // Meci 3: altă rotație
+            team1 = [shuffled[6], shuffled[2]];
+            team2 = [shuffled[3], shuffled[4]];
+            waiting = [shuffled[0], shuffled[1], shuffled[5]];
+            matches.push({ team1, team2, waiting });
+
+            // Meci 4: încă o rotație
+            team1 = [shuffled[1], shuffled[5]];
+            team2 = [shuffled[6], shuffled[0]];
+            waiting = [shuffled[2], shuffled[3], shuffled[4]];
+            matches.push({ team1, team2, waiting });
+
+            return matches;
+        }
+
+        function generateTournament() {
+            matches = generateBalancedMatches();
+            matchResults = matches.map(() => ({ score1: 0, score2: 0, completed: false }));
+            
+            // Inițializare statistici
+            const allPlayers = [...players.advanced, ...players.intermediate, ...players.beginner];
+            playerStats = {};
+            allPlayers.forEach(player => {
+                playerStats[player] = { wins: 0, losses: 0 };
+            });
+
+            displayMatches();
+            document.getElementById('matchesSection').classList.remove('hidden');
+            document.getElementById('bracketSection').classList.add('hidden');
+            document.getElementById('statsSection').classList.add('hidden');
+        }
+
+        function displayMatches() {
+            const container = document.getElementById('matchesContainer');
+            container.innerHTML = '';
+
+            matches.forEach((match, index) => {
+                const matchCard = document.createElement('div');
+                matchCard.className = 'match-card';
+                matchCard.innerHTML = `
+                    <div class="match-header">Meci ${index + 1}</div>
+                    
+                    <div class="team">
+                        <div class="team-label">Echipa 1</div>
+                        <div class="team-players">
+                            ${match.team1.map(p => `<div class="player-name">${p}</div>`).join('')}
+                        </div>
+                    </div>
+
+                    <div class="team">
+                        <div class="team-label">Echipa 2</div>
+                        <div class="team-players">
+                            ${match.team2.map(p => `<div class="player-name">${p}</div>`).join('')}
+                        </div>
+                    </div>
+
+                    <div class="waiting-players">
+                        <div class="waiting-label">⏳ Așteaptă:</div>
+                        <div style="display: flex; gap: 5px; flex-wrap: wrap;">
+                            ${match.waiting.map(p => `<span style="background: white; padding: 5px 10px; border-radius: 15px; font-size: 0.9em;">${p}</span>`).join('')}
+                        </div>
+                    </div>
+
+                    <div class="score-input">
+                        <button onclick="selectWinner(${index}, 1)" style="flex: 1; background: #28a745;">Echipa 1 Câștigă</button>
+                        <button onclick="selectWinner(${index}, 2)" style="flex: 1; background: #dc3545;">Echipa 2 Câștigă</button>
+                    </div>
+                `;
+                container.appendChild(matchCard);
+            });
+        }
+
+        function selectWinner(matchIndex, winningTeam) {
+            matchResults[matchIndex] = { 
+                winner: winningTeam,
+                completed: true 
+            };
+
+            // Actualizare statistici
+            const match = matches[matchIndex];
+            if (winningTeam === 1) {
+                match.team1.forEach(p => playerStats[p].wins++);
+                match.team2.forEach(p => playerStats[p].losses++);
+            } else {
+                match.team2.forEach(p => playerStats[p].wins++);
+                match.team1.forEach(p => playerStats[p].losses++);
+            }
+
+            alert(`✓ Câștigător salvat: Echipa ${winningTeam}`);
+
+            // Verifică dacă toate meciurile sunt completate
+            if (matchResults.every(r => r.completed)) {
+                generateBrackets();
+            }
+        }
+
+        function generateBrackets() {
+            document.getElementById('bracketSection').classList.remove('hidden');
+            document.getElementById('statsSection').classList.remove('hidden');
+
+            const winnerBracket = document.getElementById('winnerBracket');
+            const loserBracket = document.getElementById('loserBracket');
+            
+            winnerBracket.innerHTML = '';
+            loserBracket.innerHTML = '';
+
+            matches.forEach((match, index) => {
+                const result = matchResults[index];
+                const winner = result.winner === 1 ? 'team1' : 'team2';
+                
+                // Bracket câștigători
+                const winnerCard = document.createElement('div');
+                winnerCard.className = 'bracket-match winner';
+                winnerCard.innerHTML = `
+                    <div class="round-label">Meci ${index + 1}</div>
+                    <div class="bracket-team ${winner === 'team1' ? 'won' : 'lost'}">
+                        <span>${match.team1.join(' & ')}</span>
+                        <span>${winner === 'team1' ? '✓' : '✗'}</span>
+                    </div>
+                    <div class="bracket-team ${winner === 'team2' ? 'won' : 'lost'}">
+                        <span>${match.team2.join(' & ')}</span>
+                        <span>${winner === 'team2' ? '✓' : '✗'}</span>
+                    </div>
+                `;
+                winnerBracket.appendChild(winnerCard);
+
+                // Bracket învinși
+                const loserCard = document.createElement('div');
+                loserCard.className = 'bracket-match loser';
+                loserCard.innerHTML = `
+                    <div class="round-label">Meci ${index + 1}</div>
+                    <div class="bracket-team ${winner === 'team1' ? 'won' : 'lost'}">
+                        <span>${match.team1.join(' & ')}</span>
+                        <span>${winner === 'team1' ? '✓' : '✗'}</span>
+                    </div>
+                    <div class="bracket-team ${winner === 'team2' ? 'won' : 'lost'}">
+                        <span>${match.team2.join(' & ')}</span>
+                        <span>${winner === 'team2' ? '✓' : '✗'}</span>
+                    </div>
+                `;
+                loserBracket.appendChild(loserCard);
+            });
+
+            displayStats();
+        }
+
+        function displayStats() {
+            const statsGrid = document.getElementById('statsGrid');
+            statsGrid.innerHTML = '';
+
+            // Sortează jucătorii după victorii
+            const sortedPlayers = Object.entries(playerStats)
+                .sort((a, b) => b[1].wins - a[1].wins);
+
+            sortedPlayers.forEach(([player, stats]) => {
+                const statCard = document.createElement('div');
+                statCard.className = 'stat-card';
+                statCard.innerHTML = `
+                    <div class="stat-value">${stats.wins}-${stats.losses}</div>
+                    <div class="stat-label">${player}</div>
+                `;
+                statsGrid.appendChild(statCard);
+            });
+        }
+
+        function resetTournament() {
+            matches = [];
+            matchResults = [];
+            playerStats = {};
+            document.getElementById('matchesSection').classList.add('hidden');
+            document.getElementById('bracketSection').classList.add('hidden');
+            document.getElementById('statsSection').classList.add('hidden');
+        }
+    </script>
+</body>
+</html>
