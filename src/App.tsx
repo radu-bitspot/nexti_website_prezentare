@@ -8,6 +8,7 @@ import Services from './components/Services';
 import About from './components/About';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
+import Tenis from './components/Tenis';
 
 function MainContent() {
   const { lang } = useParams<{ lang: string }>();
@@ -40,6 +41,7 @@ function MainContent() {
 function App() {
   return (
     <Routes>
+      <Route path="/tenis" element={<Tenis />} />
       <Route path="/:lang" element={<MainContent />} />
       <Route path="/" element={<Navigate to="/ro" replace />} />
     </Routes>
