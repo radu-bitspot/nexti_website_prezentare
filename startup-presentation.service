@@ -1,0 +1,37 @@
+[Unit]
+Description=Startup Presentation - React Website
+Documentation=https://github.com/nextti/startup-presentation
+After=network.target
+
+[Service]
+Type=simple
+User=www-data
+Group=www-data
+WorkingDirectory=/var/www/startup-presentation
+
+# Servește fișierele statice din folderul build pe portul 3000
+# Folosește 'serve' - un server HTTP static pentru Node.js
+# Instalează-l global: npm install -g serve
+ExecStart=/usr/bin/serve -s build -l 3000
+
+# Restart automat în caz de crash
+Restart=on-failure
+RestartSec=10
+
+# Variabile de mediu
+Environment=NODE_ENV=production
+Environment=PORT=3000
+
+# Securitate - restricții suplimentare
+NoNewPrivileges=true
+ProtectSystem=strict
+ProtectHome=true
+ReadWritePaths=/var/www/startup-presentation
+
+# Logging
+StandardOutput=journal
+StandardError=journal
+SyslogIdentifier=startup-presentation
+
+[Install]
+WantedBy=multi-user.target
